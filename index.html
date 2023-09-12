@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mr Johari!</title>
+  </head>
+  <body>
+    <script type="module" src="/main.js"></script>
+    <script>
+    function plot() {
+      const exp = document.getElementById("smile").value;
+      const xValues = [];
+      const yValues = [];
+    
+      for (let x = 0; x <= 100; x += 0.1) {
+        xValues.push(x);
+        yValues.push(eval(exp));
+    }
+    const data = [{x:xValues, y:yValues, mode:"lines"}];
+    const layout = {title: "y = " + exp};
+    Plotly.newPlot("graph", data, layout);
+    }
+    </script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <h1>Happy Teacher's Day, Mr Johari!</h1>
+    <p>Thank you for teaching me Mathematics for me this year, 
+      you are one of the best math teachers I ever got, so thank you!</p>
+    <p>Infact, I am so happy I...</p>
+    <input id="smile" type="text" value="x*x-100*x+2500">
+    <button onclick='plot()'>Click to unveil!</button>
+    <div id="graph" style="width: 100%;height:70%;"></div>
+  </body>
+
+  <footer>
+    Made by Tian Huai with ❤️
+  </footer>
+</html>
